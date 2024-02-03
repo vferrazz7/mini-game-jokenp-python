@@ -10,7 +10,14 @@ print('''Suas opções:
 [1] Papel
 [2] Tesoura''')
 
-jogador = int(input('Qual é a sua jogada?'))
+while True:
+    jogador = input('Qual é a sua jogada? ')
+    
+    if jogador.isdigit() and int(jogador) in [0, 1, 2]:
+        jogador = int(jogador)
+        break
+    else:
+        print("Por favor, digite um número válido (0, 1 ou 2).")
 
 print('PEDRA')
 sleep(1)
@@ -25,7 +32,6 @@ print('-=' * 11)
 print(f'Computador jogou: {itens[computador]}')
 print(f'Jogador jogou: {itens[jogador]}')
 print('-=' * 11)
-
 if computador == 0:
     if jogador == 0:
         print('EMPATE')
